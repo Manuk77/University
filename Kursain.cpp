@@ -62,7 +62,7 @@ public:
 
     string toString() const{
         return "{Product Name = " + procName + "} {RAM = " + to_string(ram) +"GB } { HDD = " +
-        to_string(hdd) + "GB } { VIDEO = " + video;
+        to_string(hdd) + "GB } { VIDEO = " + video + " }";
     }
 
 
@@ -415,89 +415,89 @@ private:
     Database db;
 };
 
-int main() {
-    int i = 0;
-    vector<Computer> comp;
-    vector<Laboratory> lib;
-    Database db = Database(comp, lib);
-    CRUD crud = CRUD(db);
-    do{
-        Menu();
-        // choice for crud
-        cin>>i;
-        switch (i) {
-            case 1:
-                subMenu();
-                cin>>i;
-                switch (i) {
-                    case 1:
-                        crud.insertCompany();
-                        break;
-                    case 2:
-                        crud.insertLaboratory();
-                        break;
-                    default:
-                        cout<<"ENTERED CHOICE DOSE NOT EXIST"<<endl;
-                }
-                crud.getDb().saveLaboratory();
-                crud.getDb().saveComputer();
-                break;
-
-            case 2:
-                subMenu();
-                cin >> i;
-                switch (i) {
-                    case 1:
-                        crud.selectComputer();
-                        break;
-                    case 2:
-                        crud.selectLaboratory();
-                        break;
-                    default:
-                        cout<<"ENTERED CHOICE DOSE NOT EXIST"<<endl;
-                }
-
-
-                break;
-            case 3:
-                if(crud.getDb().getComputers().size() < 1)
-                    break;
-                int choice;
-                subMenu();
-                cin>>choice;
-                if (choice == 1) {
-                    crud.getDb().printComputer(crud.getDb().getComputers());
-                    crud.deleteComputer();
-                }else {
-                    crud.getDb().printLaboratory(crud.getDb().getLaboratory());
-                    crud.deleteLaboratory();
-                }
-                break;
-            case 4:
-                subMenu();
-                int x;
-                cin >> x;
-                switch (x) {
-                    case 1:
-                        crud.getDb().printComputer(crud.getDb().getComputers());
-                        break;
-                    case 2:
-                        crud.getDb().printLaboratory(crud.getDb().getLaboratory());
-                        break;
-                    default:
-                        cout<<"ENTERED CHOICE DOSE NOT EXIST"<<endl;
-                }
-                break;
-
-            case 5:
-                break;
-
-            default:
-                cout<<"ENTERED CHOICE DOSE NOT EXIST"<<endl;
-        }
-
-    } while (i != 5);
-
-    return 0;
-}
+//int main() {
+//    int i = 0;
+//    vector<Computer> comp;
+//    vector<Laboratory> lib;
+//    Database db = Database(comp, lib);
+//    CRUD crud = CRUD(db);
+//    do{
+//        Menu();
+//        // choice for crud
+//        cin>>i;
+//        switch (i) {
+//            case 1:
+//                subMenu();
+//                cin>>i;
+//                switch (i) {
+//                    case 1:
+//                        crud.insertCompany();
+//                        break;
+//                    case 2:
+//                        crud.insertLaboratory();
+//                        break;
+//                    default:
+//                        cout<<"ENTERED CHOICE DOSE NOT EXIST"<<endl;
+//                }
+//                crud.getDb().saveLaboratory();
+//                crud.getDb().saveComputer();
+//                break;
+//
+//            case 2:
+//                subMenu();
+//                cin >> i;
+//                switch (i) {
+//                    case 1:
+//                        crud.selectComputer();
+//                        break;
+//                    case 2:
+//                        crud.selectLaboratory();
+//                        break;
+//                    default:
+//                        cout<<"ENTERED CHOICE DOSE NOT EXIST"<<endl;
+//                }
+//
+//
+//                break;
+//            case 3:
+//                if(crud.getDb().getComputers().size() < 1)
+//                    break;
+//                int choice;
+//                subMenu();
+//                cin>>choice;
+//                if (choice == 1) {
+//                    crud.getDb().printComputer(crud.getDb().getComputers());
+//                    crud.deleteComputer();
+//                }else {
+//                    crud.getDb().printLaboratory(crud.getDb().getLaboratory());
+//                    crud.deleteLaboratory();
+//                }
+//                break;
+//            case 4:
+//                subMenu();
+//                int x;
+//                cin >> x;
+//                switch (x) {
+//                    case 1:
+//                        crud.getDb().printComputer(crud.getDb().getComputers());
+//                        break;
+//                    case 2:
+//                        crud.getDb().printLaboratory(crud.getDb().getLaboratory());
+//                        break;
+//                    default:
+//                        cout<<"ENTERED CHOICE DOSE NOT EXIST"<<endl;
+//                }
+//                break;
+//
+//            case 5:
+//                break;
+//
+//            default:
+//                cout<<"ENTERED CHOICE DOSE NOT EXIST"<<endl;
+//        }
+//
+//    } while (i != 5);
+//
+//    return 0;
+//}
 
